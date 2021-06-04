@@ -1,4 +1,4 @@
-# User Authentification
+# User Service Authentification Spring Boot
 
 User login with jwt
 
@@ -23,10 +23,12 @@ User login with jwt
  ```
 
 - Create Data Model(MySQL) for the user
-- Create repository interface of the users
-- Connect repository with the 
+- Create Repository interface of the users
+- Create User Service
+- Test User Service  
 
-## Create Data Model
+
+
 
 
 
