@@ -1,21 +1,15 @@
 package com.llazar.user_service.controller;
 
 
-import com.llazar.user_service.Service.UserRequest;
-import com.llazar.user_service.Service.UserService;
+import com.llazar.user_service.service.UserRequest;
+import com.llazar.user_service.service.UserService;
 import com.llazar.user_service.model.User;
-import com.llazar.user_service.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 

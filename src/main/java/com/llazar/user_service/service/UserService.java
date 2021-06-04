@@ -1,4 +1,4 @@
-package com.llazar.user_service.Service;
+package com.llazar.user_service.service;
 
 
 import com.llazar.user_service.model.User;

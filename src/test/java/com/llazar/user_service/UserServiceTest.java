@@ -1,8 +1,8 @@
 package com.llazar.user_service;
 
-import com.llazar.user_service.Service.UserRequest;
+import com.llazar.user_service.service.UserRequest;
 
-import com.llazar.user_service.Service.UserService;
+import com.llazar.user_service.service.UserService;
 import com.llazar.user_service.model.User;
 import com.llazar.user_service.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;

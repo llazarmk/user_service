@@ -1,4 +1,4 @@
-package com.llazar.user_service.Service;
+package com.llazar.user_service.service;
 
 
 import javax.validation.constraints.NotBlank;
