@@ -1,18 +1,18 @@
 package com.llazar.user_service;
 
+import com.llazar.user_service.model.UserModel;
+import com.llazar.user_service.security.JwtTokenProvider;
 import com.llazar.user_service.service.UserRequest;
 
 import com.llazar.user_service.service.UserService;
-import com.llazar.user_service.model.User;
 import com.llazar.user_service.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
 import java.text.ParseException;
-import java.util.Arrays;
 
-public class UserServiceTest {
+public class UserModelServiceTest {
 
     private UserRequest userRequest;
 
@@ -20,12 +20,15 @@ public class UserServiceTest {
 
     private UserService userService;
 
+    private JwtTokenProvider jwtTokenProvider;
+
     @BeforeEach
     void init()
     {
         // "yyyy-MM-dd"
         // Create a test user request
-        userRequest = new UserRequest("user1",
+        userRequest = new UserRequest(
+                "user1",
                 "user@mail.com",
                 "1234",
                 "firstname",
@@ -35,18 +38,16 @@ public class UserServiceTest {
         );
         // pass the user repository as dependency injection
 
-        userService = new UserService(userRepository);
+        userService = new UserService(userRepository, jwtTokenProvider);
     }
 
     @Test
-    void test_user_request() throws ParseException {
+    void test_createUser() throws ParseException {
         System.out.println("Print User Request ");
-
-        User user = userService.createUser(userRequest);
-
-        Assert.assertEquals(user.getUsername(),"user1");
-        Assert.assertEquals(user.getEmail(),"user@mail.com");
-        Assert.assertNotEquals(Arrays.toString(user.getPassword()),"1234");
+        UserModel userModel = userService.createUser(userRequest);
+        Assert.assertEquals(userModel.getUsername(),"user1");
+        Assert.assertEquals(userModel.getEmail(),"user@mail.com");
+        Assert.assertNotEquals(userModel.getPassword(),"1234");
 
     }
 }

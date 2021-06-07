@@ -20,35 +20,57 @@ import java.util.Date;
         @UniqueConstraint(columnNames = "email"),
         @UniqueConstraint(columnNames = "username")
 })
-public class User {
+public class UserModel {
+
+    // ToDo the password is going to be passed through the frontend service so it is going to come hashed+ salted
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long userId;
+    private long userid;
 
     @NotEmpty
     @Size(max = 30)
     private String username;
+
     @NotEmpty
     @Size(max=30)
     private String email;
-    private byte[] password;
+
 
     @NotEmpty
-    private String firstName;
+    @Size(max=255)
+    private String password;
 
     @NotEmpty
-    private String lastName;
+    @Size(max=30)
+    private String first_name;
 
+    @NotEmpty
+    @Size(max=30)
+    private String last_name;
+
+    @Size(max=100)
     private String address;
     private Date birthday;
 
-    public User(String username, String email, byte[] password, String firstName, String lastName, String address, Date birthday) {
+    /**
+     * Constructs the User Model
+     *
+     *  @param username string username of the user
+     *  @param email string email of the user
+     *  @param password string password of the user
+     *  @param first_name string first_name of the user
+     *  @param last_name string last_name of the user
+     *  @param address   string address of the user
+     *  @param birthday  string birthday of the user in the form (YY-MM-dd)
+     */
+
+    public UserModel(String username, String email, String password, String first_name, String last_name, String address, Date birthday) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.address = address;
         this.birthday = birthday;
     }

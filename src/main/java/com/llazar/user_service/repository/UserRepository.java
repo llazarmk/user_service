@@ -7,13 +7,14 @@ This means that you don’t have to define CRUD methods by yourself!
 
 package com.llazar.user_service.repository;
 
-import com.llazar.user_service.model.User;
+import com.llazar.user_service.model.UserModel;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<UserModel,Long> {
+    /**
+     * Creates the persistence user repository layer interface.
+     */
 
-    User findFirstByUsername(String username);
-    Boolean existUsername(String username);
-    Boolean existEmail(String email);
+    UserModel findByUsername(String username);
 
 }

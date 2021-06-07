@@ -1,6 +1,6 @@
 package com.llazar.user_service.service;
 
-import org.jetbrains.annotations.NotNull;
+
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,6 +15,11 @@ public class Parser {
     private static final char[] OLD_DATE_CHAR_SEP = new char[]{'/',':','.',';'};
     private static final char NEW_DATE_CHAR_SEP = '-';
 
+    /**
+     * Utility function for parsing string dates. Returns the date in the correct format
+     * @param dateString the string to parse.
+     *
+     */
 
     public static Date parseDate(String dateString) throws ParseException {
         // If we get a date using slashes, convert it to using dashes.
@@ -22,7 +27,6 @@ public class Parser {
         return DATE_FORMAT.parse(dateString);
     }
 
-    @NotNull
     private static String replaceOldString(String dateString) {
         for (int i = 0; i < OLD_DATE_CHAR_SEP.length; i++ ){
             char oldChar = OLD_DATE_CHAR_SEP[i];
@@ -35,5 +39,7 @@ public class Parser {
         }
         return dateString;
     }
+
+
 
 }
