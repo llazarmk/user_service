@@ -10,6 +10,8 @@ The input request would come from a front end page which would have to be create
 another service. The frontend would receive the token and would then be routed
 to the desired other services.
 
+MySQL is utilized only for creating a new user.
+
 This token would be then used by other services for their specific tasks.
 
 The private key is a google cloud authentication key and for now it is hardcoded in
