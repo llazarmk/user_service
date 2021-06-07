@@ -16,19 +16,11 @@ import javax.validation.Valid;
 @RestController
 public class UserController {
 
-    // get the service through dependency injection
-    // private static final Logger LogerService = new LoggerService().getLogger(UserController.class);
-    private static final String READINESS_CODE = "ok" ;
+
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/ready")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> ready()
-    {
-        return new ResponseEntity<>(READINESS_CODE,HttpStatus.OK);
-    }
 
     @PostMapping("/users")
     public ResponseEntity<String> users(@Valid @RequestBody UserRequest request){
