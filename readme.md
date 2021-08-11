@@ -27,11 +27,7 @@ the application.properties file in the src/main/resources folder
 
 
 
-### TODO
-- The idea is to deploy this application in google kubernetes engines and from there
-to access the key from the google cloud secret manager.
-- Configure the application.properties to utilize the cloud-sql instead of 
-the local mysql
+
 
 
 
